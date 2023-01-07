@@ -6,7 +6,7 @@ export default function FormStep({ btnChange, handleChange, stepsStatic }) {
       <div className='form-row'>
         <label htmlFor='date'>Дата(ДД.ММ.ГГГГ)</label>
         <input
-          type='text'
+          type='date'
           name='date'
           onChange={handleChange}
           value={stepsStatic.date}

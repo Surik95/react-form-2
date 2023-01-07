@@ -16,12 +16,12 @@ export default function Steps() {
 
   const btnChange = (event) => {
     event.preventDefault();
-    debugger;
     const index = stepArr.findIndex((item) => item.date === stepsStatic.date);
-    if (!/\d{2}[\\.]\d{2}[\\.]\d{4}$/g.test(String(stepsStatic.date))) {
-      alert("Неккоректная дата!");
+    if ("" === stepsStatic.date) {
+      alert("Введите дату!");
       return;
     } else if (
+      stepsStatic.distance <= 0 ||
       !/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$/.test(
         String(stepsStatic.distance)
       )
@@ -42,14 +42,14 @@ export default function Steps() {
       prevArr.sort((a, b) => {
         return (
           moment()
-            .date(Number(b.date.slice(0, 2)))
-            .month(Number(b.date.slice(3, 5)) + 1)
-            .year(Number(b.date.slice(6, 10)))
+            .date(Number(b.date.slice(8, 10)))
+            .month(Number(b.date.slice(5, 7)) + 1)
+            .year(Number(b.date.slice(0, 4)))
             .unix() -
           moment()
-            .date(Number(a.date.slice(0, 2)))
-            .month(Number(a.date.slice(3, 5)) + 1)
-            .year(Number(a.date.slice(6, 10)))
+            .date(Number(a.date.slice(8, 10)))
+            .month(Number(a.date.slice(5, 7)) + 1)
+            .year(Number(a.date.slice(0, 4)))
             .unix()
         );
       })
@@ -63,7 +63,6 @@ export default function Steps() {
 
   const changeStep = (id) => {
     const index = stepArr.findIndex((item) => item.id === id);
-    debugger;
     stepForm({
       date: stepArr[index].date,
       distance: stepArr[index].distance,

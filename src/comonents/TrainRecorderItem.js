@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 export default function TrainRecorderItem({ item, deleteStep, changeStep }) {
-  debugger;
   return (
     <li className='TrainRecord__item'>
-      <div>{item.date}</div>
+      <div>{`${item.date.slice(8, 10)}.${item.date.slice(
+        5,
+        7
+      )}.${item.date.slice(0, 4)}`}</div>
       <div>{Number(item.distance).toFixed(2)}</div>
       <div>
         <i className='material-icons' onClick={() => changeStep(item.id)}>
@@ -16,7 +18,6 @@ export default function TrainRecorderItem({ item, deleteStep, changeStep }) {
     </li>
   );
 }
-
 TrainRecorderItem.propTypes = {
   stepsStatic: PropTypes.exact({
     id: PropTypes.string,
