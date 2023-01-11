@@ -19,11 +19,11 @@ export default function TrainRecorderItem({ item, deleteStep, changeStep }) {
   );
 }
 TrainRecorderItem.propTypes = {
-  stepsStatic: PropTypes.exact({
+  item: PropTypes.exact({
     id: PropTypes.string,
     date: PropTypes.string,
     distance: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
-  btnChange: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  deleteStep: PropTypes.func.isRequired,
+  changeStep: PropTypes.func.isRequired,
 };

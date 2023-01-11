@@ -2,7 +2,6 @@ import TrainRecorderItem from "./TrainRecorderItem";
 import PropTypes from "prop-types";
 
 export default function TableSteps({ statistic, deleteStep, changeStep }) {
-  debugger;
   return (
     <div className='TableSteps'>
       <div className='labelTableSteps'>
